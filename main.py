@@ -50,6 +50,14 @@ img = qr_code.make_image(fill_color=qr_colour, back_color=qr_bg_colour)
 #Taking the input for file name of the image
 while True:
     name = input("Enter the name of the QR code to save the image: ").strip()
+    if name.endswith(".png") or name.endswith(".jpg") or name.endswith(".jpeg") or name.endswith(".tiff"):
+        reverse_name = name[::-1]
+        reverse_name = reverse_name.replace("gnp.", "")
+        reverse_name = reverse_name.replace("gpj.", "")
+        reverse_name = reverse_name.replace("gepj.", "")
+        reverse_name = reverse_name.replace("ffit.", "")
+        name = reverse_name[::-1]
+
     confirm_save = input(f"Are you sure you want to save your QR code image as {name}.png (y/n): ")
     if confirm_save == "y" or confirm_save == "yes":
         break
